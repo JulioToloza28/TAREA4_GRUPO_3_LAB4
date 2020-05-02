@@ -1,5 +1,7 @@
 package TP4;
 
+import java.awt.EventQueue;
+
 public class Principal {
 
 	public Principal() {
@@ -7,8 +9,16 @@ public class Principal {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					VentanaMenu frame = new VentanaMenu();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
 	}
 
 }
