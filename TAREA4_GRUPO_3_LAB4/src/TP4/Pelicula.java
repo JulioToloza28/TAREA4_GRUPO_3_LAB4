@@ -5,15 +5,18 @@ public class Pelicula {
 	private int id=0;
 	private String Nombre;
 	private Categoria Genero;
+	private static int cont=0;
 
 	public Pelicula() {
-		
+		cont++;
+		id=cont;
 	}
 	
 	public Pelicula(String Nombre,Categoria Genero) {
+		cont++;
+		this.id=cont;
 	 	this.setNombre(Nombre);
 	 	this.setGenero(Genero);
-	 	this.setId(id+1);
 	}
 
 
@@ -42,6 +45,15 @@ public class Pelicula {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+/*	public static int getCurrentId() {
+		return currentId;
+	}
+	
+	public static int setCurrentId(int Cid) {
+		
+	}*/
+	
 
 	@Override
 	public String toString() {

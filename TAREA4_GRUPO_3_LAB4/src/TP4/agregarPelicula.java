@@ -4,7 +4,12 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
+
+import java.awt.Container;
+
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class agregarPelicula extends JPanel {
 	/**
@@ -31,9 +36,13 @@ public class agregarPelicula extends JPanel {
 		lblGenero.setBounds(32, 123, 46, 26);
 		add(lblGenero);
 		
-		JLabel lblIdnumero = new JLabel("idNumero");
+		
+		JLabel lblIdnumero = new JLabel("");
 		lblIdnumero.setBounds(134, 49, 46, 14);
 		add(lblIdnumero);
+		Pelicula pelicula = new Pelicula();
+		lblIdnumero.setText(String.valueOf(pelicula.getId()));
+		
 		
 		txtNombre = new JTextField();
 		txtNombre.setBounds(134, 81, 120, 20);
@@ -52,6 +61,16 @@ public class agregarPelicula extends JPanel {
 		JButton btnAgregar = new JButton("Agregar");
 		btnAgregar.setBounds(32, 181, 89, 23);
 		add(btnAgregar);
+		btnAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+		});
 
+	}
+
+	private Container getContentPane() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
