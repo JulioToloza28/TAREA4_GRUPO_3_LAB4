@@ -6,9 +6,14 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import appMenu.PanelIngresoPeliculas;
+
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
 
@@ -32,6 +37,16 @@ public class VentanaMenu extends JFrame {
 		menuBar.add(mnPelicula);
 		
 		JMenuItem mniAgregar = new JMenuItem("Agregar");
+		mniAgregar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				contentPane.removeAll();
+				//para abrir el form agregar peliculas
+				agregarPelicula panelPeliculas = new agregarPelicula();
+				contentPane.add(panelPeliculas);
+				contentPane.repaint();
+				contentPane.revalidate();
+			}
+		});
 		mnPelicula.add(mniAgregar);
 		
 		JMenuItem mniListar = new JMenuItem("Listar");
