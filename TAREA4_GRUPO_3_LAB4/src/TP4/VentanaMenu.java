@@ -13,7 +13,6 @@ import javax.swing.JMenuItem;
 public class VentanaMenu extends JFrame {
 
 	private JPanel contentPane;
-
 	/**
 	 * Launch the application.
 	 */
