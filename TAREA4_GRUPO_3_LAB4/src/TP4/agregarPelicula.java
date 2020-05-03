@@ -53,11 +53,11 @@ public class agregarPelicula extends JPanel {
 		JComboBox<Categoria> cboGenero = new JComboBox<Categoria>();
 		cboGenero.setBounds(134, 126, 207, 20);
 		cboGenero.addItem(new Categoria(-1, "Seleccione un genero"));
-		cboGenero.addItem(new Categoria(1, "Terror"));
-		cboGenero.addItem(new Categoria(2, "Accion"));
-		cboGenero.addItem(new Categoria(3, "Suspenso"));
-		cboGenero.addItem(new Categoria(4, "Romantica"));
-		cboGenero.addItem(new Categoria(5, "Thriller"));
+		cboGenero.addItem(new Categoria(0, "Terror"));
+		cboGenero.addItem(new Categoria(1, "Accion"));
+		cboGenero.addItem(new Categoria(2, "Suspenso"));
+		cboGenero.addItem(new Categoria(3, "Romantica"));
+		cboGenero.addItem(new Categoria(4, "Thriller"));
 		add(cboGenero);
 		
 		JButton btnAgregar = new JButton("Agregar");
@@ -65,8 +65,15 @@ public class agregarPelicula extends JPanel {
 		add(btnAgregar);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Categoria aux=new Categoria();
+				aux=(Categoria)cboGenero.getSelectedItem();
 				if(txtNombre.getText().isEmpty()) {
 					JOptionPane.showMessageDialog(null, "Complete el nombre");
+					return;
+				}
+				if(aux.getId()==-1) {
+					JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
+					
 				}
 			}
 		});
