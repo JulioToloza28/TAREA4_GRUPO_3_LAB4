@@ -17,7 +17,6 @@ public class VentanaMenu extends JFrame {
 	 * Launch the application.
 	 */
 
-
 	/**
 	 * Create the frame.
 	 */
