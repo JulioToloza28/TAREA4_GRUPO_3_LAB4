@@ -7,6 +7,10 @@ import javax.swing.JComboBox;
 import javax.swing.JButton;
 
 public class agregarPelicula extends JPanel {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
 
 	/**
@@ -36,8 +40,13 @@ public class agregarPelicula extends JPanel {
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JComboBox cboGenero = new JComboBox();
+		JComboBox<Categoria> cboGenero = new JComboBox<Categoria>();
 		cboGenero.setBounds(134, 126, 120, 20);
+		cboGenero.addItem(new Categoria(1, "Terror"));
+		cboGenero.addItem(new Categoria(2, "Accion"));
+		cboGenero.addItem(new Categoria(3, "Suspenso"));
+		cboGenero.addItem(new Categoria(4, "Romantica"));
+		cboGenero.addItem(new Categoria(5, "Thriller"));
 		add(cboGenero);
 		
 		JButton btnAgregar = new JButton("Agregar");
