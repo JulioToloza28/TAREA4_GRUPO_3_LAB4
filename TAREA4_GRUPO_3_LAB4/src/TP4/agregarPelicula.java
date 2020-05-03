@@ -2,6 +2,7 @@ package TP4;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 
@@ -45,12 +46,13 @@ public class agregarPelicula extends JPanel {
 		
 		
 		txtNombre = new JTextField();
-		txtNombre.setBounds(134, 81, 120, 20);
+		txtNombre.setBounds(134, 81, 207, 20);
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
 		JComboBox<Categoria> cboGenero = new JComboBox<Categoria>();
-		cboGenero.setBounds(134, 126, 120, 20);
+		cboGenero.setBounds(134, 126, 207, 20);
+		cboGenero.addItem(new Categoria(-1, "Seleccione un genero"));
 		cboGenero.addItem(new Categoria(1, "Terror"));
 		cboGenero.addItem(new Categoria(2, "Accion"));
 		cboGenero.addItem(new Categoria(3, "Suspenso"));
@@ -63,7 +65,9 @@ public class agregarPelicula extends JPanel {
 		add(btnAgregar);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				if(txtNombre.getText().isEmpty()) {
+					JOptionPane.showMessageDialog(null, "Complete el nombre");
+				}
 			}
 		});
 
