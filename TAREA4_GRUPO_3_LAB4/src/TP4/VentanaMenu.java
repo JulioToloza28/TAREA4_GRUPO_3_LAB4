@@ -1,6 +1,8 @@
 package TP4;
 
 import java.awt.BorderLayout;
+
+import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -18,6 +20,7 @@ public class VentanaMenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
+	private static DefaultListModel<Pelicula> Model;
 	/**
 	 * Launch the application.
 	 */
@@ -36,12 +39,14 @@ public class VentanaMenu extends JFrame {
 		JMenu mnPelicula = new JMenu("Pelicula");
 		menuBar.add(mnPelicula);
 		
+		Model = new DefaultListModel<Pelicula>();
+		
 		JMenuItem mniAgregar = new JMenuItem("Agregar");
 		mniAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
 				//para abrir el form agregar peliculas
-				agregarPelicula panelPeliculas = new agregarPelicula();
+				agregarPelicula panelPeliculas = new agregarPelicula(Model);
 				contentPane.add(panelPeliculas);
 				contentPane.repaint();
 				contentPane.revalidate();
@@ -53,7 +58,7 @@ public class VentanaMenu extends JFrame {
 		mniListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				contentPane.removeAll();
-				listarPelicula panelListar=new listarPelicula();
+				listarPelicula panelListar=new listarPelicula(Model);
 				contentPane.add(panelListar);
 				contentPane.repaint();
 				contentPane.revalidate();

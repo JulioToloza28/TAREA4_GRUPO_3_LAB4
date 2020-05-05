@@ -8,6 +8,7 @@ import javax.swing.JComboBox;
 
 import java.awt.Container;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -22,7 +23,9 @@ public class agregarPelicula extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public agregarPelicula() {
+	public agregarPelicula() {}
+	
+	public agregarPelicula(DefaultListModel<Pelicula> model) {
 		setLayout(null);
 		
 		JLabel lblId = new JLabel("ID");
@@ -65,16 +68,28 @@ public class agregarPelicula extends JPanel {
 		add(btnAgregar);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Categoria aux=new Categoria();
-				aux=(Categoria)cboGenero.getSelectedItem();
-				if(txtNombre.getText().isEmpty()) {
-					JOptionPane.showMessageDialog(null, "Complete el nombre");
-					return;
+				Categoria CategoriaAux = new Categoria();
+				CategoriaAux=(Categoria)cboGenero.getSelectedItem();
+				
+				try {
+					if(txtNombre.getText().isEmpty()) {
+						JOptionPane.showMessageDialog(null, "Complete el nombre");
+						return;
+					}else if(CategoriaAux.getId()==-1) {
+						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
+						return;
+					}else {
+						Pelicula peli = new Pelicula(txtNombre.getText(),CategoriaAux);
+						model.addElement(peli);
+						JOptionPane.showMessageDialog(null, "Pelicula agregada correctamente");
+	
+					}
 				}
-				if(aux.getId()==-1) {
-					JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
-					
+				catch(Exception Ex){
+					JOptionPane.showMessageDialog(null, Ex.toString());
 				}
+				
+
 			}
 		});
 
