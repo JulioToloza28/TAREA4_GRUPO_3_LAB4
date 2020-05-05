@@ -44,8 +44,7 @@ public class agregarPelicula extends JPanel {
 		JLabel lblIdnumero = new JLabel("");
 		lblIdnumero.setBounds(134, 49, 46, 14);
 		add(lblIdnumero);
-		Pelicula pelicula = new Pelicula();
-		lblIdnumero.setText(String.valueOf(pelicula.getId()));
+		lblIdnumero.setText(String.valueOf(Pelicula.getCont()));
 		
 		
 		txtNombre = new JTextField();
@@ -79,16 +78,19 @@ public class agregarPelicula extends JPanel {
 						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
 						return;
 					}else {
-						Pelicula peli = new Pelicula(txtNombre.getText(),CategoriaAux);
-						model.addElement(peli);
+						model.addElement(new Pelicula(txtNombre.getText(),CategoriaAux));
 						JOptionPane.showMessageDialog(null, "Pelicula agregada correctamente");
-	
+						lblIdnumero.setText(String.valueOf(Pelicula.getCont()));
+						
+						txtNombre.setText("");
+						txtNombre.requestFocus();
+						cboGenero.setSelectedIndex(0);
+						//peli.setId(model.getSize());
 					}
 				}
 				catch(Exception Ex){
 					JOptionPane.showMessageDialog(null, Ex.toString());
 				}
-				
 
 			}
 		});
