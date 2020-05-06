@@ -1,15 +1,13 @@
 package TP4;
 import java.awt.BorderLayout;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
 import javax.swing.JMenuBar;
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class VentanaMenu extends JFrame {
@@ -19,7 +17,7 @@ public class VentanaMenu extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private static DefaultListModel<Pelicula> Model;
+	private static ArrayList<Pelicula> Lista;
 	/**
 	 * Launch the application.
 	 */
@@ -30,7 +28,7 @@ public class VentanaMenu extends JFrame {
 	public VentanaMenu() {
 		setTitle("Programa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(500, 200, 450, 300);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -38,14 +36,14 @@ public class VentanaMenu extends JFrame {
 		JMenu mnPelicula = new JMenu("Pelicula");
 		menuBar.add(mnPelicula);
 		
-		Model = new DefaultListModel<Pelicula>();
+		Lista = new ArrayList<Pelicula>();
 		
 		JMenuItem mniAgregar = new JMenuItem("Agregar");
 		mniAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
 				//para abrir el form agregar peliculas
-				agregarPelicula panelPeliculas = new agregarPelicula(Model);
+				agregarPelicula panelPeliculas = new agregarPelicula(Lista);
 				contentPane.add(panelPeliculas);
 				contentPane.repaint();
 				contentPane.revalidate();
@@ -57,7 +55,7 @@ public class VentanaMenu extends JFrame {
 		mniListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				contentPane.removeAll();
-				listarPelicula panelListar=new listarPelicula(Model);
+				listarPelicula panelListar=new listarPelicula(Lista);
 				contentPane.add(panelListar);
 				contentPane.repaint();
 				contentPane.revalidate();

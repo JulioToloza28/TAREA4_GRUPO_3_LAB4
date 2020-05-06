@@ -1,16 +1,12 @@
 package TP4;
-
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
-
-import java.awt.Container;
-
-import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class agregarPelicula extends JPanel {
@@ -25,7 +21,7 @@ public class agregarPelicula extends JPanel {
 	 */
 	public agregarPelicula() {}
 	
-	public agregarPelicula(DefaultListModel<Pelicula> model) {
+	public agregarPelicula(ArrayList<Pelicula> model) {
 		setLayout(null);
 		
 		JLabel lblId = new JLabel("ID");
@@ -78,14 +74,13 @@ public class agregarPelicula extends JPanel {
 						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
 						return;
 					}else {
-						model.addElement(new Pelicula(txtNombre.getText(),CategoriaAux));
+						model.add(new Pelicula(txtNombre.getText(),CategoriaAux));
 						JOptionPane.showMessageDialog(null, "Pelicula agregada correctamente");
 						lblIdnumero.setText(String.valueOf(Pelicula.getCont()));
 						
 						txtNombre.setText("");
 						txtNombre.requestFocus();
 						cboGenero.setSelectedIndex(0);
-						//peli.setId(model.getSize());
 					}
 				}
 				catch(Exception Ex){
@@ -95,10 +90,5 @@ public class agregarPelicula extends JPanel {
 			}
 		});
 
-	}
-
-	private Container getContentPane() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 }
