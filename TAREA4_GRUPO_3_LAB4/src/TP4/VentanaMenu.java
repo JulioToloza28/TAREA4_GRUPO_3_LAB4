@@ -26,6 +26,7 @@ public class VentanaMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaMenu() {
+		setResizable(false);
 		setTitle("Programa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 200, 450, 300);

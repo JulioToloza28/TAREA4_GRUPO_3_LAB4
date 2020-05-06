@@ -54,7 +54,7 @@ public class Pelicula {
 
 	@Override
 	public String toString() {
-		return Nombre;
+		return  Nombre +" "+"      "+ Genero.getGenero();
 	}
 
 

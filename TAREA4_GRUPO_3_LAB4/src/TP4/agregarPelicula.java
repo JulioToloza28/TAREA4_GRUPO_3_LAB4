@@ -58,8 +58,8 @@ public class agregarPelicula extends JPanel {
 		cboGenero.addItem(new Categoria(4, "Thriller"));
 		add(cboGenero);
 		
-		JButton btnAgregar = new JButton("Agregar");
-		btnAgregar.setBounds(32, 181, 89, 23);
+		JButton btnAgregar = new JButton("Aceptar");
+		btnAgregar.setBounds(170, 181, 89, 23);
 		add(btnAgregar);
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
