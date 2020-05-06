@@ -66,11 +66,12 @@ public class agregarPelicula extends JPanel {
 		btnAgregar = new JButton("Aceptar");
 		btnAgregar.setBounds(170, 181, 89, 23);
 		add(btnAgregar);
+		//Boton agregar pelicula
 		btnAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Categoria CategoriaAux = new Categoria();
 				CategoriaAux=(Categoria)cboGenero.getSelectedItem();
-				
+				//validacion de campos vacios y opcion de combobox que no debe seleccionarse
 				try {
 					if(txtNombre.getText().isEmpty()) {
 						JOptionPane.showMessageDialog(null, "Complete el nombre");
@@ -78,11 +79,12 @@ public class agregarPelicula extends JPanel {
 					}else if(CategoriaAux.getId()==-1) {
 						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
 						return;
+						//Agrega la pelicula correctamente
 					}else {
 						model.add(new Pelicula(txtNombre.getText(),CategoriaAux));
 						JOptionPane.showMessageDialog(null, "Pelicula agregada correctamente");
 						lblIdnumero.setText(String.valueOf(Pelicula.getCont()));
-						
+						//Vacia los campos
 						txtNombre.setText("");
 						txtNombre.requestFocus();
 						cboGenero.setSelectedIndex(0);

@@ -22,8 +22,9 @@ public class listarPelicula extends JPanel {
 	 */
 	public listarPelicula() {}
 	
-public listarPelicula(ArrayList<Pelicula> model) {
+    public listarPelicula(ArrayList<Pelicula> model) {
 		
+    	//expresion lambda para comparar los nombres y ordenarlos alfabeticamente
 		Collections.sort(model, (x, y) -> x.getNombre().compareToIgnoreCase(y.getNombre()));
 		ListIterator<Pelicula> ListaModel=model.listIterator();
 		listaPeli= new DefaultListModel<Pelicula>();

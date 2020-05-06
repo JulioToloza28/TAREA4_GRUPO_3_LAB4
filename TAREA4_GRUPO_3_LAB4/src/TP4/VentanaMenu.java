@@ -47,7 +47,7 @@ public class VentanaMenu extends JFrame {
 		mniAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
-				//para abrir el form agregar peliculas
+				//para abrir el panel agregar peliculas
 				agregarPelicula panelPeliculas = new agregarPelicula(Lista);
 				contentPane.add(panelPeliculas);
 				contentPane.repaint();
@@ -56,6 +56,7 @@ public class VentanaMenu extends JFrame {
 		});
 		mnPelicula.add(mniAgregar);
 		
+		//para abrir el panel listar peliculas
 		mniListar = new JMenuItem("Listar");
 		mniListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
