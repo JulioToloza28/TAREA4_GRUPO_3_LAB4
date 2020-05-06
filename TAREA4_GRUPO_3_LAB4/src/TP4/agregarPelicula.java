@@ -74,10 +74,10 @@ public class agregarPelicula extends JPanel {
 				//validacion de campos vacios y opcion de combobox que no debe seleccionarse
 				try {
 					if(txtNombre.getText().isEmpty()) {
-						JOptionPane.showMessageDialog(null, "Complete el nombre");
+						JOptionPane.showMessageDialog(null, "Complete el nombre", "ERROR", JOptionPane.ERROR_MESSAGE);
 						return;
 					}else if(CategoriaAux.getId()==-1) {
-						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero");
+						JOptionPane.showMessageDialog(null, "Debe seleccionar un genero", "ERROR", JOptionPane.ERROR_MESSAGE);
 						return;
 						//Agrega la pelicula correctamente
 					}else {
