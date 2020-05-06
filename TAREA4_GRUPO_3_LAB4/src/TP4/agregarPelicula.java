@@ -15,7 +15,12 @@ public class agregarPelicula extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JTextField txtNombre;
-
+	private JLabel lblId;
+	private JLabel lblNombre;
+	private JLabel lblGenero;
+	private JLabel lblIdnumero;
+	private JComboBox<Categoria> cboGenero;
+	private JButton btnAgregar;
 	/**
 	 * Create the panel.
 	 */
@@ -24,20 +29,20 @@ public class agregarPelicula extends JPanel {
 	public agregarPelicula(ArrayList<Pelicula> model) {
 		setLayout(null);
 		
-		JLabel lblId = new JLabel("ID");
+		lblId = new JLabel("ID");
 		lblId.setBounds(32, 49, 46, 14);
 		add(lblId);
 		
-		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre = new JLabel("Nombre");
 		lblNombre.setBounds(32, 84, 46, 14);
 		add(lblNombre);
 		
-		JLabel lblGenero = new JLabel("Genero");
+		lblGenero = new JLabel("Genero");
 		lblGenero.setBounds(32, 123, 46, 26);
 		add(lblGenero);
 		
 		
-		JLabel lblIdnumero = new JLabel("");
+		lblIdnumero = new JLabel("");
 		lblIdnumero.setBounds(134, 49, 46, 14);
 		add(lblIdnumero);
 		lblIdnumero.setText(String.valueOf(Pelicula.getCont()));
@@ -48,7 +53,7 @@ public class agregarPelicula extends JPanel {
 		add(txtNombre);
 		txtNombre.setColumns(10);
 		
-		JComboBox<Categoria> cboGenero = new JComboBox<Categoria>();
+		cboGenero= new JComboBox<Categoria>();
 		cboGenero.setBounds(134, 126, 207, 20);
 		cboGenero.addItem(new Categoria(-1, "Seleccione un genero"));
 		cboGenero.addItem(new Categoria(0, "Terror"));
@@ -58,7 +63,7 @@ public class agregarPelicula extends JPanel {
 		cboGenero.addItem(new Categoria(4, "Thriller"));
 		add(cboGenero);
 		
-		JButton btnAgregar = new JButton("Aceptar");
+		btnAgregar = new JButton("Aceptar");
 		btnAgregar.setBounds(170, 181, 89, 23);
 		add(btnAgregar);
 		btnAgregar.addActionListener(new ActionListener() {

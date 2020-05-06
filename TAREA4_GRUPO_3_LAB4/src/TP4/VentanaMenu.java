@@ -18,6 +18,10 @@ public class VentanaMenu extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private static ArrayList<Pelicula> Lista;
+	private JMenuBar menuBar;
+	private JMenu mnPelicula;
+	private JMenuItem mniAgregar;
+	private JMenuItem mniListar;
 	/**
 	 * Launch the application.
 	 */
@@ -31,15 +35,15 @@ public class VentanaMenu extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(500, 200, 450, 300);
 		
-		JMenuBar menuBar = new JMenuBar();
+		menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnPelicula = new JMenu("Pelicula");
+		mnPelicula = new JMenu("Pelicula");
 		menuBar.add(mnPelicula);
 		
 		Lista = new ArrayList<Pelicula>();
 		
-		JMenuItem mniAgregar = new JMenuItem("Agregar");
+		mniAgregar = new JMenuItem("Agregar");
 		mniAgregar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				contentPane.removeAll();
@@ -52,7 +56,7 @@ public class VentanaMenu extends JFrame {
 		});
 		mnPelicula.add(mniAgregar);
 		
-		JMenuItem mniListar = new JMenuItem("Listar");
+		mniListar = new JMenuItem("Listar");
 		mniListar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				contentPane.removeAll();

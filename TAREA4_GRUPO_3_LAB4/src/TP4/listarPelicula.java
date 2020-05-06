@@ -13,6 +13,9 @@ public class listarPelicula extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	private DefaultListModel<Pelicula> listaPeli;
+	private JLabel lblPelicula;
+	private JList<Pelicula> list;
 
 	/**
 	 * Create the panel.
@@ -23,7 +26,7 @@ public listarPelicula(ArrayList<Pelicula> model) {
 		
 		Collections.sort(model, (x, y) -> x.getNombre().compareToIgnoreCase(y.getNombre()));
 		ListIterator<Pelicula> ListaModel=model.listIterator();
-		DefaultListModel<Pelicula> listaPeli= new DefaultListModel<Pelicula>();
+		listaPeli= new DefaultListModel<Pelicula>();
 		while(ListaModel.hasNext())
 		{
 			listaPeli.addElement(ListaModel.next());
@@ -31,11 +34,11 @@ public listarPelicula(ArrayList<Pelicula> model) {
 		
 		setLayout(null);
 		
-		JLabel lblPelicula = new JLabel("Peliculas");
+		lblPelicula = new JLabel("Peliculas");
 		lblPelicula.setBounds(32, 130, 73, 14);
 		add(lblPelicula);
 		
-		JList<Pelicula> list = new JList<Pelicula>(listaPeli);
+		list = new JList<Pelicula>(listaPeli);
 		list.setBounds(98, 11, 322, 267);
 		add(list);
 
